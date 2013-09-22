@@ -12,4 +12,15 @@ Implemented:
 - 10) Facebook shares count
 
 
+TODO:
+
+- Count of known sites with the same IP (Bing search engine)
+- Google Backlinks
+- Geo infromation with geoip.flagfox.net or different geo ip service
+- Page internal and external links count
+- WHOIS expiration date *
+- Page content length
+- Yandex TIC
+
+
 ![Scrrenshot](https://raw.github.com/Fivell/android-seoman/master/screenshot.jpg)
