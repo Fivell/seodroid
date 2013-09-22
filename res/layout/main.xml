@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+        >
+    <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+        <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_gravity="left|top" android:orientation="horizontal"
+                android:visibility="visible" android:id="@+id/TextView" android:layout_marginLeft="2dp"
+                android:gravity="center_horizontal">
+            <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" android:orientation="horizontal">
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/UrlInput" android:layout_column="3" android:width="260dp"
+                        android:text=""
+                        android:singleLine="true"  android:typeface="normal"  android:layout_marginLeft="1dp"
+                        android:textSize="24dp" android:layout_gravity="left" android:layout_weight="1"/>
+                <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/goButton"
+                        android:src="@android:drawable/arrow_down_float" android:onClick="btnGoClick"
+                        android:clickable="true" android:layout_weight="1"/>
+            </TableRow>
+            <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                <ListView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/listView" android:layout_gravity="center" android:layout_column="0"
+                        android:layout_span="5"/>
+            </TableRow>
+        </TableLayout>
+    </FrameLayout>
+</LinearLayout>
+

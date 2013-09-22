@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content">
+
+
+    <ImageView
+            android:id="@+id/jobIcon"
+            android:padding="10dp"
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:focusable="false"/>
+
+    <TextView
+            android:id="@+id/jobName"
+            android:text="Name"
+            android:paddingLeft="10dip"
+            android:layout_weight="0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_gravity="center"/>
+    <TextView
+            android:id="@+id/jobValue"
+            android:text="Value"
+            android:padding="10dp"
+            android:layout_gravity="right|center_vertical"
+            android:paddingRight="10dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+</LinearLayout>
