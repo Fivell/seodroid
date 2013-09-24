@@ -1,4 +1,4 @@
-package com.seoman.seoman;
+package com.seodroid.seodroid;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,14 +7,14 @@ import android.view.View;
 
 import java.net.URI;
 import java.util.ArrayList;
-
-
+import  android.content.Intent;
+import android.widget.AdapterView.OnItemClickListener;
 import android.os.AsyncTask;
-import com.seoman.seoman.system.IResult;
-import com.seoman.seoman.ui.ItemArrayAdapter;
-import com.seoman.seoman.ui.ResultItem;
+import com.seodroid.seodroid.system.IResult;
+import com.seodroid.seodroid.ui.ItemArrayAdapter;
+import com.seodroid.seodroid.ui.ResultItem;
 
-public class SeoManActivity extends Activity {
+public class SeoDroidActivity extends Activity {
 
 
     EditText inputView;
@@ -62,7 +62,7 @@ public class SeoManActivity extends Activity {
 
         for (String jobClassName : classes) {
             try {
-                IResult iResult = (IResult) (Class.forName("com.seoman.seoman.jobs." + jobClassName).
+                IResult iResult = (IResult) (Class.forName("com.seodroid.seodroid.jobs." + jobClassName).
                         getConstructor().newInstance());
 
                 iResult.setUri(URI.create(input));
@@ -104,9 +104,31 @@ public class SeoManActivity extends Activity {
 
         clearState();
         initState();
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                   openUriForItemPosition(position);
 
+            }
+        });
 
     }
+
+    public void openUriForItemPosition(int position){
+
+        String browserUrl = arrayAdapter.getItem(position).getUrl();
+        if(browserUrl == null){
+            return;
+        }
+
+        Toast.makeText(this,
+                "Opening " +
+                arrayAdapter.getItem(position).getUrl() , Toast.LENGTH_SHORT).show();
+
+        startActivity(new Intent(Intent.ACTION_VIEW).setData( android.net.Uri.parse(arrayAdapter.getItem(position).getUrl())));
+
+    }
+
 
     class SeoTask extends AsyncTask<IResult, Void, Void> {
         String response;
@@ -130,7 +152,7 @@ public class SeoManActivity extends Activity {
                 return;
             }
             arrayAdapter.add(
-                    new ResultItem(iResult.getName(), response, iResult.getIconName())
+                    new ResultItem(iResult.getName(), response, iResult.getIconName(), iResult.getBrowserUrl())
 
             );
             arrayAdapter.notifyDataSetChanged();

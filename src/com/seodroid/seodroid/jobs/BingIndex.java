@@ -1,7 +1,7 @@
-package com.seoman.seoman.jobs;
+package com.seodroid.seodroid.jobs;
 
-import com.seoman.seoman.system.BaseHttp;
-import com.seoman.seoman.system.IResult;
+import com.seodroid.seodroid.system.BaseHttp;
+import com.seodroid.seodroid.system.IResult;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,8 +14,8 @@ public class BingIndex  extends BaseHttp
     private static final String REGEX =  "<span class=\"sb_count\" id=\"count\">(.*?)<";
 
 
-    public  String getUrl(){
-        return  "http://www.bing.com/search?q=site:";
+    public  String getGrabUrl(){
+        return  "http://www.bing.com/search?q=site:"+  getUri().getHost();
     }
 
     public String getIconName() {
@@ -27,7 +27,7 @@ public class BingIndex  extends BaseHttp
     }
     public String getResult() throws Exception {
 
-        String htmlDocument =     getRequest(getUrl() + getUri().getHost());
+        String htmlDocument =     getRequest(getGrabUrl());
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(htmlDocument);
         String result = "n/a";

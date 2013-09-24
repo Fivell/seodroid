@@ -1,6 +1,6 @@
-package com.seoman.seoman.jobs;
-import com.seoman.seoman.system.BaseHttp;
-import com.seoman.seoman.system.IResult;
+package com.seodroid.seodroid.jobs;
+import com.seodroid.seodroid.system.BaseHttp;
+import com.seodroid.seodroid.system.IResult;
 
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -9,12 +9,12 @@ import java.util.regex.Matcher;
 public class GoogleIndex extends BaseHttp
         implements IResult {
 
-    //https://www.google.com/search?q=site:ru.ru
+
     private static final String REGEX =  "<div id=\"resultStats\">(.*?)<";
 
 
-    public  String getUrl(){
-        return  "http://www.google.com/search?q=site:";
+    public  String getGrabUrl(){
+        return  "https://www.google.com/search?q=site:"+getUri().getHost();
     }
 
     public String getIconName() {
@@ -26,7 +26,7 @@ public class GoogleIndex extends BaseHttp
     }
     public String getResult() throws Exception {
 
-        String htmlDocument =     getRequest(getUrl() + getUri().getHost());
+        String htmlDocument =     getRequest(getGrabUrl());
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(htmlDocument);
         String result = "n/a";

@@ -1,6 +1,6 @@
-package com.seoman.seoman.jobs;
-import com.seoman.seoman.system.BaseHttp;
-import com.seoman.seoman.system.IResult;
+package com.seodroid.seodroid.jobs;
+import com.seodroid.seodroid.system.BaseHttp;
+import com.seodroid.seodroid.system.IResult;
 
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -13,8 +13,8 @@ public class WebArchive extends BaseHttp
     private static final String REGEX =  "going all the way back to <a.*?>(.*?)</a>";
 
 
-    public  String getUrl(){
-       return  "http://web.archive.org/web/*/";
+    public  String getGrabUrl(){
+       return  "http://web.archive.org/web/*/"+  getUri().getHost();
     }
 
     public String getIconName() {
@@ -26,7 +26,7 @@ public class WebArchive extends BaseHttp
     }
     public String getResult() throws Exception {
 
-        String htmlDocument =     getRequest(getUrl() + getUri().getHost());
+        String htmlDocument =     getRequest(getGrabUrl());
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(htmlDocument);
 

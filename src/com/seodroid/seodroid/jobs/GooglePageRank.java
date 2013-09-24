@@ -1,9 +1,9 @@
-package com.seoman.seoman.jobs;
+package com.seodroid.seodroid.jobs;
 
 
-import com.seoman.seoman.system.Base;
-import com.seoman.seoman.system.IResult;
-import com.seoman.seoman.google.JenkinsHash;
+import com.seodroid.seodroid.google.JenkinsHash;
+import com.seodroid.seodroid.system.Base;
+import com.seodroid.seodroid.system.IResult;
 
 
 import java.io.BufferedReader;
@@ -35,21 +35,28 @@ public class GooglePageRank
 
     }
 
-    public String getName() {
-        return "Google PageRank";
-    }
+    public String getGrabUrl(){
 
-    private String getRawResult(String domain) throws Exception {
+        String domain = getUri().getHost();
         long hash = jenkinsHash.hash(("info:" + domain).getBytes());
 
         //Append a 6 in front of the hashing value.
         String url = "http://toolbarqueries.google.com/tbr?client=navclient-auto&hl=en&"
                 + "ch=6" + hash + "&ie=UTF-8&oe=UTF-8&features=Rank&q=info:" + domain;
+        return  url;
+    }
+
+    public String getName() {
+        return "Google PageRank";
+    }
+
+    private String getRawResult(String domain) throws Exception {
+
 
         String result = "";
 
 
-        URLConnection conn = new URL(url).openConnection();
+        URLConnection conn = new URL(getGrabUrl()).openConnection();
 
         BufferedReader br = new BufferedReader(new InputStreamReader(
                 conn.getInputStream()));

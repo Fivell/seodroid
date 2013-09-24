@@ -1,19 +1,19 @@
-package com.seoman.seoman.jobs;
+package com.seodroid.seodroid.jobs;
 
 
 
-import com.seoman.seoman.system.BaseJson;
-import com.seoman.seoman.system.IResult;
+import com.seodroid.seodroid.system.BaseJson;
+import com.seodroid.seodroid.system.IResult;
 
 
 public class TweetsCount extends BaseJson
         implements IResult {
 
-    private static final String apiUrl =  "https://cdn.api.twitter.com/1/urls/count.json?url=";
+    private static final String apiUrl =  "http://cdn.api.twitter.com/1/urls/count.json?url=";
     private static final String jsonKey = "count";
 
-    public String getUrl(){
-       return apiUrl;
+    public String getGrabUrl(){
+       return apiUrl + getUri().toString();
     }
 
 

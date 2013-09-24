@@ -1,7 +1,7 @@
-package com.seoman.seoman.jobs;
+package com.seodroid.seodroid.jobs;
 
-import com.seoman.seoman.system.Base;
-import com.seoman.seoman.system.IResult;
+import com.seodroid.seodroid.system.Base;
+import com.seodroid.seodroid.system.IResult;
 
 import java.net.InetAddress;
 
@@ -9,6 +9,11 @@ import java.net.InetAddress;
 public class Ip
         extends Base
         implements IResult {
+
+
+    public String getGrabUrl(){
+        return  "http://ping.nmonitoring.com/?ip="+getUri().getHost()+"&pingsub=1&ln=en";
+    }
 
     public String getName() {
         return "IP";

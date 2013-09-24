@@ -1,7 +1,7 @@
-package com.seoman.seoman.jobs;
+package com.seodroid.seodroid.jobs;
 
-import com.seoman.seoman.system.BaseHttp;
-import com.seoman.seoman.system.IResult;
+import com.seodroid.seodroid.system.BaseHttp;
+import com.seodroid.seodroid.system.IResult;
 
 import java.net.URI;
 import java.util.regex.Matcher;
@@ -17,8 +17,8 @@ public class Dmoz extends BaseHttp
         return  "dmoz.png";
     }
 
-    public String getUrl(){
-        return "http://www.dmoz.org/search/?q=";
+    public String getGrabUrl(){
+        return "http://www.dmoz.org/search/?q="+ getUri().getHost();
     }
 
     public String getName(){
@@ -26,11 +26,11 @@ public class Dmoz extends BaseHttp
      }
 
      public String getResult() throws Exception{
-         String host = getUri().getHost();
-         String htmlDocument =     getRequest(getUrl() + host);
+
+         String htmlDocument =     getRequest(getGrabUrl());
          Pattern pattern = Pattern.compile(REGEX);
          Matcher matcher = pattern.matcher(htmlDocument);
-
+         String host = getUri().getHost();
          String dmozHost;
          while(matcher.find()){
              try {

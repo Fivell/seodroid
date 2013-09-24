@@ -1,7 +1,7 @@
-package com.seoman.seoman.jobs;
+package com.seodroid.seodroid.jobs;
 
-import com.seoman.seoman.system.BaseJson;
-import com.seoman.seoman.system.IResult;
+import com.seodroid.seodroid.system.BaseJson;
+import com.seodroid.seodroid.system.IResult;
 
 
 public class FacebookSharesCount  extends BaseJson
@@ -12,12 +12,12 @@ public class FacebookSharesCount  extends BaseJson
 
     @Override
     public String getResult() throws Exception {
-        return  getJsonElementFromUri(apiUrl + uri.toString(), jsonKey );
+        return  getJsonElementFromUri(getGrabUrl(), jsonKey );
 
     }
 
-    public String getUrl(){
-        return apiUrl;
+    public String getGrabUrl(){
+        return apiUrl +  uri.toString();
     }
 
     public String getJsonKey(){

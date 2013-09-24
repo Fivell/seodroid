@@ -1,8 +1,8 @@
 
-package com.seoman.seoman.jobs;
+package com.seodroid.seodroid.jobs;
 
-import com.seoman.seoman.system.Base;
-import com.seoman.seoman.system.IResult;
+import com.seodroid.seodroid.system.Base;
+import com.seodroid.seodroid.system.IResult;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -29,16 +29,24 @@ public class AlexaRank
 
     public String getResult() throws Exception {
 
-        return getRawResult(uri.getHost());
+        return getRawResult();
 
     }
 
-    private String getRawResult(String domain) throws Exception {
+    public  String getBrowserUrl(){
+        return  "http://www.alexa.com/siteinfo/"   + uri.getHost();
+    }
+
+    public  String getGrabUrl(){
+       return  "http://data.alexa.com/data?cli=10&url=" + uri.getHost();
+    }
+
+    private String getRawResult() throws Exception {
         int result = 0;
-        String url = "http://data.alexa.com/data?cli=10&url=" + domain;
 
 
-        URLConnection conn = new URL(url).openConnection();
+
+        URLConnection conn = new URL(getGrabUrl()).openConnection();
         InputStream is = conn.getInputStream();
 
         DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -54,7 +62,7 @@ public class AlexaRank
         }
 
 
-        return Integer.toString(result);
+        return String.valueOf(result);
     }
 
 }

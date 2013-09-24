@@ -1,4 +1,4 @@
-package com.seoman.seoman.system;
+package com.seodroid.seodroid.system;
 
 
 import java.net.URI;
@@ -8,4 +8,6 @@ public interface IResult {
    public void setUri(URI iri);
    public String getName();
    public String getIconName();
+   public String getGrabUrl();
+   public String getBrowserUrl();
 }

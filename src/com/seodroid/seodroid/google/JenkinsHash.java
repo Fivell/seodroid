@@ -1,4 +1,4 @@
-package com.seoman.seoman.google;
+package com.seodroid.seodroid.google;
 
 /**
  * Hash algorithm by Bob Jenkins, 1996.

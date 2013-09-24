@@ -1,7 +1,7 @@
-package com.seoman.seoman.jobs;
+package com.seodroid.seodroid.jobs;
 
-import com.seoman.seoman.system.BaseJson;
-import com.seoman.seoman.system.IResult;
+import com.seodroid.seodroid.system.BaseJson;
+import com.seodroid.seodroid.system.IResult;
 
 
 public class LinkedInSharesCount extends BaseJson
@@ -9,8 +9,8 @@ public class LinkedInSharesCount extends BaseJson
 
     private static final String apiUrl =  "http://www.linkedin.com/countserv/count/share?format=json&url=";
 
-    public String getUrl(){
-        return apiUrl;
+    public String getGrabUrl(){
+        return apiUrl + uri.toString();
     }
 
     @Override

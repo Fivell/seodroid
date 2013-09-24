@@ -1,6 +1,6 @@
-package com.seoman.seoman.ui;
+package com.seodroid.seodroid.ui;
 
-import com.seoman.seoman.*;
+import com.seodroid.seodroid.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
