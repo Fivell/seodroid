@@ -25,4 +25,4 @@ TODO:
 
 Developed with Android SDK 2.3.3 (Java SDK 1.6)
 
-![Scrrenshot](https://raw.github.com/Fivell/android-seoman/master/screenshot.jpg)
+![Scrrenshot](https://raw.github.com/Fivell/seodroid/master/screenshot.jpg)
