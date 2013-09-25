@@ -17,7 +17,7 @@ public class FacebookSharesCount  extends BaseJson
     }
 
     public String getGrabUrl(){
-        return apiUrl +  uri.toString();
+        return apiUrl +  getUri().toString();
     }
 
     public String getJsonKey(){

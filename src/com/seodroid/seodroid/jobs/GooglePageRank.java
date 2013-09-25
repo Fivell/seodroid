@@ -31,7 +31,7 @@ public class GooglePageRank
 
     public String getResult() throws Exception {
 
-        return getRawResult(uri.getHost());
+        return getRawResult();
 
     }
 
@@ -50,10 +50,10 @@ public class GooglePageRank
         return "Google PageRank";
     }
 
-    private String getRawResult(String domain) throws Exception {
+    private String getRawResult() throws Exception {
 
 
-        String result = "";
+        String result = "0";
 
 
         URLConnection conn = new URL(getGrabUrl()).openConnection();

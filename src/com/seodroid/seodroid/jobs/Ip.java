@@ -4,6 +4,7 @@ import com.seodroid.seodroid.system.Base;
 import com.seodroid.seodroid.system.IResult;
 
 import java.net.InetAddress;
+import java.net.URI;
 
 
 public class Ip
@@ -11,9 +12,16 @@ public class Ip
         implements IResult {
 
 
+
     public String getGrabUrl(){
-        return  "http://ping.nmonitoring.com/?ip="+getUri().getHost()+"&pingsub=1&ln=en";
+        try {
+            return  "http://geoip.flagfox.net/?ip="+ getResult();
+        }catch (Exception e){
+            return null;
+        }
     }
+
+
 
     public String getName() {
         return "IP";
@@ -24,6 +32,6 @@ public class Ip
     }
 
     public String getResult() throws Exception {
-        return InetAddress.getByName(uri.getHost()).getHostAddress();
+        return  link.getIP();
     }
 }

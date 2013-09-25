@@ -10,13 +10,12 @@ Implemented:
 - 8) Twitter tweets count
 - 9) Linkedin shares count
 - 10) Facebook shares count
+- 11) Count of known sites with the same IP (Bing search engine)
+- 12) Google Backlinks
 
 
 TODO:
 
-- Count of known sites with the same IP (Bing search engine)
-- Google Backlinks
-- Geo infromation with geoip.flagfox.net or different geo ip service
 - Page internal and external links count
 - WHOIS expiration date *
 - Page content length

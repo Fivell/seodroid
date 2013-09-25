@@ -2,22 +2,29 @@ package com.seodroid.seodroid.system;
 
 
 import java.net.URI;
+import java.net.UnknownHostException;
 
 public abstract class Base implements
         IResult{
 
-    protected URI uri;
+    protected Link link;
+
+    public void setLink(Link link){
+        this.link = link;
+    }
 
     public String getBrowserUrl(){
         return  getGrabUrl();
     }
 
-    public URI getUri() {
-        return uri;
+    public String getIP() throws UnknownHostException{
+       return link.getIP();
     }
 
-    public void setUri(URI uri) {
-        this.uri = uri;
+    public URI getUri() {
+        return link.getURI();
     }
+
+
 
 }

@@ -17,13 +17,15 @@ public class GoogleIndex extends BaseHttp
         return  "https://www.google.com/search?q=site:"+getUri().getHost();
     }
 
+    public String getName() {
+        return "Google Site Index";
+    }
+
     public String getIconName() {
         return "google.png";
     }
 
-    public String getName() {
-        return "Google Site Index";
-    }
+
     public String getResult() throws Exception {
 
         String htmlDocument =     getRequest(getGrabUrl());
@@ -32,6 +34,9 @@ public class GoogleIndex extends BaseHttp
         String result = "n/a";
         if (matcher.find()){
            result =  matcher.group(1).replaceAll( "[^\\d]", "" );
+           if (result == ""){
+               result =  "0";
+           }
         }
         return  result;
 

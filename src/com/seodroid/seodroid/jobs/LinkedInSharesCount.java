@@ -10,7 +10,7 @@ public class LinkedInSharesCount extends BaseJson
     private static final String apiUrl =  "http://www.linkedin.com/countserv/count/share?format=json&url=";
 
     public String getGrabUrl(){
-        return apiUrl + uri.toString();
+        return apiUrl + getUri().toString();
     }
 
     @Override

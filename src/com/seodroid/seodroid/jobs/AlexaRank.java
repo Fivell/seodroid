@@ -34,11 +34,11 @@ public class AlexaRank
     }
 
     public  String getBrowserUrl(){
-        return  "http://www.alexa.com/siteinfo/"   + uri.getHost();
+        return  "http://www.alexa.com/siteinfo/"   + getUri().getHost();
     }
 
     public  String getGrabUrl(){
-       return  "http://data.alexa.com/data?cli=10&url=" + uri.getHost();
+       return  "http://data.alexa.com/data?cli=10&url=" + getUri().getHost();
     }
 
     private String getRawResult() throws Exception {

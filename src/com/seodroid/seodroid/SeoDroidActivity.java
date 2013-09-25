@@ -11,6 +11,7 @@ import  android.content.Intent;
 import android.widget.AdapterView.OnItemClickListener;
 import android.os.AsyncTask;
 import com.seodroid.seodroid.system.IResult;
+import com.seodroid.seodroid.system.Link;
 import com.seodroid.seodroid.ui.ItemArrayAdapter;
 import com.seodroid.seodroid.ui.ResultItem;
 
@@ -57,7 +58,9 @@ public class SeoDroidActivity extends Activity {
                 "WebArchive",
                 "TweetsCount",
                 "FacebookSharesCount",
-                "LinkedInSharesCount"
+                "LinkedInSharesCount",
+                "BingIpCount",
+                "GoogleBackLinks"
         };
 
         for (String jobClassName : classes) {
@@ -65,7 +68,7 @@ public class SeoDroidActivity extends Activity {
                 IResult iResult = (IResult) (Class.forName("com.seodroid.seodroid.jobs." + jobClassName).
                         getConstructor().newInstance());
 
-                iResult.setUri(URI.create(input));
+                iResult.setLink(new Link(input));
                 SeoTask seoTask = new SeoTask();
                 tasks.add(seoTask);
                 seoTask.execute(iResult);
@@ -118,6 +121,7 @@ public class SeoDroidActivity extends Activity {
 
         String browserUrl = arrayAdapter.getItem(position).getUrl();
         if(browserUrl == null){
+
             return;
         }
 

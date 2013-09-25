@@ -5,7 +5,7 @@ import java.net.URI;
 
 public interface IResult {
    public String getResult() throws Exception;
-   public void setUri(URI iri);
+   public void setLink(Link link);
    public String getName();
    public String getIconName();
    public String getGrabUrl();
