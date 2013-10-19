@@ -193,10 +193,6 @@ public class EasyHttpClient extends DefaultHttpClient {
         return null;
     }
 
-    public static void main(String[] args) {
-        EasyHttpClient client = new EasyHttpClient();
-        System.out.println(client.get("https://encrypted.google.com/"));
-    }
 }
 
 class GzipEntityWrapper extends HttpEntityWrapper {

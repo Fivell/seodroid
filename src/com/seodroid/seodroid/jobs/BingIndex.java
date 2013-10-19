@@ -27,7 +27,7 @@ public class BingIndex  extends BaseHttp
     }
     public String getResult() throws Exception {
 
-        String htmlDocument =     getRequest(getGrabUrl());
+        String htmlDocument = contentFromGetRequest(getGrabUrl());
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(htmlDocument);
         String result = "n/a";

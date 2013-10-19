@@ -1,6 +1,7 @@
 package com.seodroid.seodroid.system;
 
 
+import com.seodroid.seodroid.Utils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -17,7 +18,7 @@ public abstract class BaseHttp extends  Base {
 
     public  abstract String getGrabUrl();
 
-    protected String getRequest(String uri) throws Exception{
+    protected String contentFromGetRequest(String uri) throws Exception{
 
 
         DefaultHttpClient httpClient = new EasyHttpClient();
@@ -27,25 +28,11 @@ public abstract class BaseHttp extends  Base {
 
         HttpEntity httpEntity = httpResponse.getEntity();
 
-        return inputStreamToString(httpEntity.getContent());
+        return Utils.toString(httpEntity.getContent());
 
     }
 
 
 
-    protected String inputStreamToString(InputStream is) throws Exception{
-        String line = "";
-        StringBuilder total = new StringBuilder();
 
-        // Wrap a BufferedReader around the InputStream
-        BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-
-        // Read response until the end
-        while ((line = rd.readLine()) != null) {
-            total.append(line);
-        }
-
-        // Return full string
-        return total.toString();
-    }
 }

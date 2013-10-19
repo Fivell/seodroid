@@ -24,15 +24,12 @@ public class GooglePageRank
     }
 
     public GooglePageRank() {
-
         this.jenkinsHash = new JenkinsHash();
     }
 
 
     public String getResult() throws Exception {
-
         return getRawResult();
-
     }
 
     public String getGrabUrl(){
@@ -52,10 +49,7 @@ public class GooglePageRank
 
     private String getRawResult() throws Exception {
 
-
         String result = "0";
-
-
         URLConnection conn = new URL(getGrabUrl()).openConnection();
 
         BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -66,8 +60,6 @@ public class GooglePageRank
             // What GooglePageRank returned? Example : Rank_1:1:9, PR = 9
             result = input.substring(input.lastIndexOf(":") + 1);
         }
-
-
         return result;
     }
 

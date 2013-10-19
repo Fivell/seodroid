@@ -12,7 +12,7 @@ public abstract  class BaseJson extends  BaseHttp {
     }
     protected String getJsonElementFromUri(String uri, String key) throws Exception{
         try{
-            return new JSONObject(getRequest(uri)).getString(key);
+            return new JSONObject(contentFromGetRequest(uri)).getString(key);
         }catch (org.json.JSONException e){
             return "0";
         }

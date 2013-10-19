@@ -27,7 +27,7 @@ public class Dmoz extends BaseHttp
 
      public String getResult() throws Exception{
 
-         String htmlDocument =     getRequest(getGrabUrl());
+         String htmlDocument = contentFromGetRequest(getGrabUrl());
          Pattern pattern = Pattern.compile(REGEX);
          Matcher matcher = pattern.matcher(htmlDocument);
          String host = getUri().getHost();
@@ -41,10 +41,10 @@ public class Dmoz extends BaseHttp
              }
 
              if (host.equals(dmozHost)){
-                 return "Y";
+                 return "Yes";
              }
          }
-         return  "N";
+         return  "No";
 
      }
 

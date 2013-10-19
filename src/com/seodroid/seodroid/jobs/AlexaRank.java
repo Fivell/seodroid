@@ -43,12 +43,8 @@ public class AlexaRank
 
     private String getRawResult() throws Exception {
         int result = 0;
-
-
-
         URLConnection conn = new URL(getGrabUrl()).openConnection();
         InputStream is = conn.getInputStream();
-
         DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         Document doc = dBuilder.parse(is);
         Element element = doc.getDocumentElement();
@@ -60,8 +56,6 @@ public class AlexaRank
                 result = Integer.valueOf(ranking);
             }
         }
-
-
         return String.valueOf(result);
     }
 

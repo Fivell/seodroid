@@ -1,11 +1,12 @@
 package com.seodroid.seodroid;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.*;
 import android.view.View;
 
-import java.net.URI;
+
 import java.util.ArrayList;
 import  android.content.Intent;
 import android.widget.AdapterView.OnItemClickListener;
@@ -60,7 +61,11 @@ public class SeoDroidActivity extends Activity {
                 "FacebookSharesCount",
                 "LinkedInSharesCount",
                 "BingIpCount",
-                "GoogleBackLinks"
+                "GoogleBackLinks",
+                "ContentLength",
+                "ContentType",
+                "Yandex",
+                "Links"
         };
 
         for (String jobClassName : classes) {
@@ -93,9 +98,11 @@ public class SeoDroidActivity extends Activity {
         arrayAdapter.notifyDataSetChanged();
     }
 
+
+
     public void btnGoClick(View v) throws Exception {
 
-        input = inputView.getText().toString();
+        input = inputView.getText().toString().trim();
 
         if (!isUrlValid(input)) {
             Toast.makeText(this, "Url is not valid", Toast.LENGTH_SHORT).show();

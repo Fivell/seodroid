@@ -22,6 +22,9 @@ public class ItemArrayAdapter extends ArrayAdapter<ResultItem> {
 
     private List<ResultItem> results = new ArrayList<ResultItem>();
     private int rowResourceId;
+    private int maxResultLength = 16;
+    private int minFontSize  =10;
+    private int defaultFontSize = 12;
 
     public ItemArrayAdapter(Context context, int textViewResourceId,
                             List<ResultItem> objects) {
@@ -42,31 +45,23 @@ public class ItemArrayAdapter extends ArrayAdapter<ResultItem> {
     }
     public View getView(int position, View convertView, ViewGroup parent) {
 
-
-
-        //View rowView = inflater.inflate(rowResourceId, parent, false);
-
         View rowView = convertView;
         if (rowView == null) {
-            // ROW INFLATION
-
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//            rowView = inflater.inflate(R.layout.row, parent, false);
             rowView = inflater.inflate(rowResourceId,parent,false);
-
         }
-
 
         ImageView iconView = (ImageView) rowView.findViewById(R.id.jobIcon);
         TextView  nameView  = (TextView) rowView.findViewById(R.id.jobName);
         TextView valueView =  (TextView) rowView.findViewById(R.id.jobValue);
-
-       ResultItem item =  getItem(position);
-
+        ResultItem item =  getItem(position);
         nameView.setText(item.name);
         valueView.setText(item.value);
-
-
+        if(item.value.length() > maxResultLength){
+            valueView.setTextSize(minFontSize);
+        }else{
+            valueView.setTextSize(defaultFontSize);
+        }
         // get input stream
         InputStream ims = null;
         try {
